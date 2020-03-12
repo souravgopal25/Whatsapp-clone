@@ -39,6 +39,7 @@ public class ChatFragment extends Fragment {
 
     private List<String > userList;
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -50,7 +51,7 @@ public class ChatFragment extends Fragment {
 
         firebaseUser= FirebaseAuth.getInstance().getCurrentUser();
         userList= new ArrayList<>();
-///TODO khasbkbdckjd
+
         databaseReference= FirebaseDatabase.getInstance().getReference("Chats");
 
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -110,8 +111,10 @@ public class ChatFragment extends Fragment {
                     }
 
                 }
-                userAdapter=new UserAdapter(getContext(),mUser,true);
-                recyclerView.setAdapter(userAdapter);
+                {
+                    userAdapter = new UserAdapter(getContext(), mUser, true);
+                    recyclerView.setAdapter(userAdapter);
+                }
             }
 
             @Override
